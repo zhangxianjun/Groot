@@ -41,7 +41,6 @@
     // Do any additional setup after loading the view, typically from a nib.
     [self.view addSubview:self.previewImageView];
     
-    NSLog(@"------------%f--%f--%f--%f", self.previewImageView.layer.frame.origin.x, self.previewImageView.layer.frame.origin.x, self.previewImageView.layer.frame.size.width, self.previewImageView.layer.frame.size.height);
     CGAffineTransform transform = CGAffineTransformIdentity;
     self.previewImageView.transform = CGAffineTransformRotate(transform, M_PI_2);
     [self test];
@@ -104,7 +103,7 @@
     
     AVCaptureVideoDataOutput *output = [[AVCaptureVideoDataOutput alloc] init];
     output.videoSettings = @{(NSString *)kCVPixelBufferPixelFormatTypeKey:@(kCVPixelFormatType_420YpCbCr8BiPlanarFullRange)};
-    output.minFrameDuration = CMTimeMake(1, 1);
+    output.minFrameDuration = CMTimeMake(1, 24);
     
     dispatch_queue_t queue = dispatch_queue_create("SERIAL", DISPATCH_QUEUE_SERIAL);
     
@@ -115,14 +114,7 @@
     if ([self.captureSession  canAddOutput:output]) {
         [self.captureSession  addOutput:output];
     }
-    
-//    self.previewLayer = [[AVCaptureVideoPreviewLayer alloc] initWithSession:self.captureSession];
-//    
-//    [self.previewLayer setVideoGravity:AVLayerVideoGravityResizeAspect];
-//    
-//    self.previewLayer.frame = UIScreen.mainScreen.bounds;
-//    self.videoView.layer.masksToBounds = YES;
-//    [self.videoView.layer addSublayer:self.previewLayer];
+    [self.captureSession startRunning];
     
     [self.view addSubview:self.startButton];
     [self.view addSubview:self.turnButton];
@@ -185,8 +177,6 @@
     }
     return nil;
 }
-
-
 
 #pragma mark - 懒加载
 - (UIView *)videoView {
