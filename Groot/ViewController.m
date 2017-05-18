@@ -109,26 +109,53 @@
     
     [output setSampleBufferDelegate:self queue:queue];
     
-    [output connectionWithMediaType:AVMediaTypeVideo];
+    AVCaptureConnection *connect = [output connectionWithMediaType:AVMediaTypeVideo];
+    connect.videoOrientation = AVCaptureVideoOrientationPortrait;
+    connect.automaticallyAdjustsVideoMirroring = NO;
+    connect.videoMirrored = NO;
     
     if ([self.captureSession  canAddOutput:output]) {
         [self.captureSession  addOutput:output];
     }
     [self.captureSession startRunning];
     
+    
+    
     [self.view addSubview:self.startButton];
     [self.view addSubview:self.turnButton];
 }
 
-- (void)captureOutput:(AVCaptureOutput *)captureOutput didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer fromConnection:(AVCaptureConnection *)connection {
-    CMTime time = CMSampleBufferGetDuration(sampleBuffer);
+//- (void)captureOutput:(AVCaptureOutput *)captureOutput didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer fromConnection:(AVCaptureConnection *)connection {
+//    CMTime time = CMSampleBufferGetDuration(sampleBuffer);
+//    CVImageBufferRef image = CMSampleBufferGetImageBuffer(sampleBuffer);
+//    CIImage *cImage = [[CIImage alloc] initWithCVImageBuffer:image];
+//    UIImage *img = [[UIImage alloc] initWithCIImage:cImage];
+//    
+//    dispatch_sync(dispatch_get_main_queue(), ^{
+//        self.previewImageView.image = img;
+//    });
+//}
+
+- (void)captureOutput:(AVCaptureOutput *)captureOutput didDropSampleBuffer:(CMSampleBufferRef)sampleBuffer fromConnection:(AVCaptureConnection *)connection {
     CVImageBufferRef image = CMSampleBufferGetImageBuffer(sampleBuffer);
     CIImage *cImage = [[CIImage alloc] initWithCVImageBuffer:image];
-    UIImage *img = [[UIImage alloc] initWithCIImage:cImage];
+    
+    EAGLContext *context = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES2];
+    
+    CIContext *cContext = [CIContext contextWithEAGLContext:context];
+    
+    // create copy retain
+    CGImageRef ref = [cContext createCGImage:cImage fromRect:cImage.extent];
+    
+    UIImage *img = [UIImage imageWithCGImage:ref];
     
     dispatch_sync(dispatch_get_main_queue(), ^{
         self.previewImageView.image = img;
+        
+        // 主动释放内存
+        CGImageRelease(ref);
     });
+    
 }
 
 - (IBAction)startButtonClicked:(UIButton *)sender {
