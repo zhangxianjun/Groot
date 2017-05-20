@@ -9,9 +9,9 @@
 #import "ViewController.h"
 #import <AVFoundation/AVFoundation.h>
 #import <GPUImage/GPUImage.h>
+#import <GLKit/GLKit.h>
+#import "Define.h"
 
-#define ZXJ_SW UIScreen.mainScreen.bounds.size.width
-#define ZXJ_SH UIScreen.mainScreen.bounds.size.height
 
 @interface ViewController ()<AVCaptureVideoDataOutputSampleBufferDelegate>
 @property (nonatomic, strong) UIView *videoView;
@@ -41,10 +41,14 @@
     // Do any additional setup after loading the view, typically from a nib.
     [self.view addSubview:self.previewImageView];
     
-    CGAffineTransform transform = CGAffineTransformIdentity;
-    self.previewImageView.transform = CGAffineTransformRotate(transform, M_PI_2);
+//    CGAffineTransform transform = CGAffineTransformIdentity;
+//    self.previewImageView.transform = CGAffineTransformRotate(transform, M_PI_2);
     [self test];
     
+    // 获取滤镜
+//    NSArray *array = [CIFilter filterNamesInCategories:kCICategoryVideo];
+    
+//    GLKView *view = 
 }
 
 - (void)gpu {
@@ -109,17 +113,15 @@
     
     [output setSampleBufferDelegate:self queue:queue];
     
-    AVCaptureConnection *connect = [output connectionWithMediaType:AVMediaTypeVideo];
-    connect.videoOrientation = AVCaptureVideoOrientationPortrait;
-    connect.automaticallyAdjustsVideoMirroring = NO;
-    connect.videoMirrored = NO;
-    
     if ([self.captureSession  canAddOutput:output]) {
         [self.captureSession  addOutput:output];
     }
     [self.captureSession startRunning];
     
-    
+    AVCaptureConnection *connect = [output connectionWithMediaType:AVMediaTypeVideo];
+    connect.videoOrientation = AVCaptureVideoOrientationPortrait;
+    connect.automaticallyAdjustsVideoMirroring = NO;
+    connect.videoMirrored = YES;
     
     [self.view addSubview:self.startButton];
     [self.view addSubview:self.turnButton];
@@ -131,12 +133,16 @@
 //    CIImage *cImage = [[CIImage alloc] initWithCVImageBuffer:image];
 //    UIImage *img = [[UIImage alloc] initWithCIImage:cImage];
 //    
+//    CIFilter *filter = [CIFilter filterWithName:@""];
+//    [filter setValue:cImage forKey:@"inputImage"];
+//    cImage = filter.outputImage;
+//    
 //    dispatch_sync(dispatch_get_main_queue(), ^{
 //        self.previewImageView.image = img;
 //    });
 //}
 
-- (void)captureOutput:(AVCaptureOutput *)captureOutput didDropSampleBuffer:(CMSampleBufferRef)sampleBuffer fromConnection:(AVCaptureConnection *)connection {
+- (void)captureOutput:(AVCaptureOutput *)captureOutput didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer fromConnection:(AVCaptureConnection *)connection {
     CVImageBufferRef image = CMSampleBufferGetImageBuffer(sampleBuffer);
     CIImage *cImage = [[CIImage alloc] initWithCVImageBuffer:image];
     
@@ -155,7 +161,6 @@
         // 主动释放内存
         CGImageRelease(ref);
     });
-    
 }
 
 - (IBAction)startButtonClicked:(UIButton *)sender {
@@ -243,7 +248,8 @@
         CGFloat cx = ZXJ_SW/2;
         CGFloat cy = ZXJ_SH/2;
         
-        _previewImageView = [[UIImageView alloc] initWithFrame:CGRectMake(-(a-cx), (cy-b), ZXJ_SH, ZXJ_SW)];
+//        _previewImageView = [[UIImageView alloc] initWithFrame:CGRectMake(-(a-cx), (cy-b), ZXJ_SH, ZXJ_SW)];
+        _previewImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, ZXJ_SH, ZXJ_SW)];
     }
     return _previewImageView;
 }
