@@ -16,6 +16,7 @@
 		DFC997811ED17622002C8633 /* MainCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DFC997801ED17622002C8633 /* MainCell.m */; };
 		DFEB7B821ED17C200035A5BB /* GPUViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DFEB7B7F1ED17C200035A5BB /* GPUViewController.m */; };
 		DFEB7B831ED17C200035A5BB /* LowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DFEB7B811ED17C200035A5BB /* LowViewController.m */; };
+		DFEB7B861ED17D8A0035A5BB /* ExperimentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DFEB7B851ED17D8A0035A5BB /* ExperimentViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,8 @@
 		DFEB7B7F1ED17C200035A5BB /* GPUViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPUViewController.m; sourceTree = "<group>"; };
 		DFEB7B801ED17C200035A5BB /* LowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LowViewController.h; sourceTree = "<group>"; };
 		DFEB7B811ED17C200035A5BB /* LowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LowViewController.m; sourceTree = "<group>"; };
+		DFEB7B841ED17D8A0035A5BB /* ExperimentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExperimentViewController.h; sourceTree = "<group>"; };
+		DFEB7B851ED17D8A0035A5BB /* ExperimentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExperimentViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +98,8 @@
 				DF9E1D481EC6D9FE005935EF /* AppDelegate.m */,
 				DFA6F1EA1ECFBD2D000D9DD0 /* MainViewController.h */,
 				DFA6F1EB1ECFBD2D000D9DD0 /* MainViewController.m */,
+				DFEB7B841ED17D8A0035A5BB /* ExperimentViewController.h */,
+				DFEB7B851ED17D8A0035A5BB /* ExperimentViewController.m */,
 				DFC9977F1ED17622002C8633 /* MainCell.h */,
 				DFC997801ED17622002C8633 /* MainCell.m */,
 				DFA6F1ED1ECFC3BE000D9DD0 /* Define.h */,
@@ -253,6 +258,7 @@
 				DFEB7B831ED17C200035A5BB /* LowViewController.m in Sources */,
 				DF9E1D461EC6D9FE005935EF /* main.m in Sources */,
 				DFA6F1EC1ECFBD2D000D9DD0 /* MainViewController.m in Sources */,
+				DFEB7B861ED17D8A0035A5BB /* ExperimentViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

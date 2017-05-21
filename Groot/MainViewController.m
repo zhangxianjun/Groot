@@ -13,13 +13,13 @@
 #import "LowViewController.h"
 #import "GPUViewController.h"
 
+#import "ExperimentViewController.h"
 
 static NSString *cellID = @"cellID";
 
 @interface MainViewController ()<UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 
 @property (nonatomic, strong) UICollectionView *cameraCollectionView;
-
 @property (nonatomic, strong) NSArray *dataSource;
 @end
 
@@ -81,6 +81,13 @@ static NSString *cellID = @"cellID";
         }
             break;
             
+        case 5:
+        {
+            ExperimentViewController *controller = [[ExperimentViewController alloc] init];
+            [self.navigationController pushViewController:controller animated:NO];
+        }
+            break;
+            
         default:
             break;
     }
@@ -108,7 +115,7 @@ static NSString *cellID = @"cellID";
 
 - (NSArray *)dataSource {
     if (_dataSource == nil) {
-        _dataSource = @[@"简单录制", @"中级录制", @"高级录制", @"完整版录制", @"GPU录制"];
+        _dataSource = @[@"简单录制", @"中级录制", @"高级录制", @"完整版录制", @"GPU录制", @"语法试验田"];
     }
     return _dataSource;
 }
