@@ -10,11 +10,12 @@
 		937407D6DEE33C1A5C173DDF /* libPods-Groot.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A34E330BD32CF132F9659541 /* libPods-Groot.a */; };
 		DF9E1D461EC6D9FE005935EF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DF9E1D451EC6D9FE005935EF /* main.m */; };
 		DF9E1D491EC6D9FE005935EF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DF9E1D481EC6D9FE005935EF /* AppDelegate.m */; };
-		DF9E1D4C1EC6D9FE005935EF /* LowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DF9E1D4B1EC6D9FE005935EF /* LowViewController.m */; };
 		DF9E1D511EC6D9FE005935EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF9E1D501EC6D9FE005935EF /* Assets.xcassets */; };
 		DF9E1D541EC6D9FE005935EF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF9E1D521EC6D9FE005935EF /* LaunchScreen.storyboard */; };
 		DFA6F1EC1ECFBD2D000D9DD0 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DFA6F1EB1ECFBD2D000D9DD0 /* MainViewController.m */; };
 		DFC997811ED17622002C8633 /* MainCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DFC997801ED17622002C8633 /* MainCell.m */; };
+		DFEB7B821ED17C200035A5BB /* GPUViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DFEB7B7F1ED17C200035A5BB /* GPUViewController.m */; };
+		DFEB7B831ED17C200035A5BB /* LowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DFEB7B811ED17C200035A5BB /* LowViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,8 +26,6 @@
 		DF9E1D451EC6D9FE005935EF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		DF9E1D471EC6D9FE005935EF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		DF9E1D481EC6D9FE005935EF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		DF9E1D4A1EC6D9FE005935EF /* LowViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LowViewController.h; sourceTree = "<group>"; };
-		DF9E1D4B1EC6D9FE005935EF /* LowViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LowViewController.m; sourceTree = "<group>"; };
 		DF9E1D501EC6D9FE005935EF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DF9E1D531EC6D9FE005935EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DF9E1D551EC6D9FE005935EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -35,6 +34,10 @@
 		DFA6F1ED1ECFC3BE000D9DD0 /* Define.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Define.h; sourceTree = "<group>"; };
 		DFC9977F1ED17622002C8633 /* MainCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainCell.h; sourceTree = "<group>"; };
 		DFC997801ED17622002C8633 /* MainCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainCell.m; sourceTree = "<group>"; };
+		DFEB7B7E1ED17C200035A5BB /* GPUViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GPUViewController.h; sourceTree = "<group>"; };
+		DFEB7B7F1ED17C200035A5BB /* GPUViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GPUViewController.m; sourceTree = "<group>"; };
+		DFEB7B801ED17C200035A5BB /* LowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LowViewController.h; sourceTree = "<group>"; };
+		DFEB7B811ED17C200035A5BB /* LowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LowViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,14 +90,13 @@
 		DF9E1D431EC6D9FE005935EF /* Groot */ = {
 			isa = PBXGroup;
 			children = (
+				DFEB7B7D1ED17C200035A5BB /* AVFoundation */,
 				DF9E1D471EC6D9FE005935EF /* AppDelegate.h */,
 				DF9E1D481EC6D9FE005935EF /* AppDelegate.m */,
 				DFA6F1EA1ECFBD2D000D9DD0 /* MainViewController.h */,
 				DFA6F1EB1ECFBD2D000D9DD0 /* MainViewController.m */,
 				DFC9977F1ED17622002C8633 /* MainCell.h */,
 				DFC997801ED17622002C8633 /* MainCell.m */,
-				DF9E1D4A1EC6D9FE005935EF /* LowViewController.h */,
-				DF9E1D4B1EC6D9FE005935EF /* LowViewController.m */,
 				DFA6F1ED1ECFC3BE000D9DD0 /* Define.h */,
 				DF9E1D501EC6D9FE005935EF /* Assets.xcassets */,
 				DF9E1D521EC6D9FE005935EF /* LaunchScreen.storyboard */,
@@ -110,6 +112,17 @@
 				DF9E1D451EC6D9FE005935EF /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		DFEB7B7D1ED17C200035A5BB /* AVFoundation */ = {
+			isa = PBXGroup;
+			children = (
+				DFEB7B7E1ED17C200035A5BB /* GPUViewController.h */,
+				DFEB7B7F1ED17C200035A5BB /* GPUViewController.m */,
+				DFEB7B801ED17C200035A5BB /* LowViewController.h */,
+				DFEB7B811ED17C200035A5BB /* LowViewController.m */,
+			);
+			path = AVFoundation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -235,8 +248,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				DFC997811ED17622002C8633 /* MainCell.m in Sources */,
-				DF9E1D4C1EC6D9FE005935EF /* LowViewController.m in Sources */,
+				DFEB7B821ED17C200035A5BB /* GPUViewController.m in Sources */,
 				DF9E1D491EC6D9FE005935EF /* AppDelegate.m in Sources */,
+				DFEB7B831ED17C200035A5BB /* LowViewController.m in Sources */,
 				DF9E1D461EC6D9FE005935EF /* main.m in Sources */,
 				DFA6F1EC1ECFBD2D000D9DD0 /* MainViewController.m in Sources */,
 			);

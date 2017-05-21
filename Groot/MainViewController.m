@@ -11,7 +11,7 @@
 #import "MainCell.h"
 
 #import "LowViewController.h"
-
+#import "GPUViewController.h"
 
 
 static NSString *cellID = @"cellID";
@@ -71,6 +71,13 @@ static NSString *cellID = @"cellID";
         case 3:
         {
             
+        }
+            break;
+            
+        case 4:
+        {
+            GPUViewController *controller = [[GPUViewController alloc] init];
+            [self.navigationController pushViewController:controller animated:NO];
         }
             break;
             
