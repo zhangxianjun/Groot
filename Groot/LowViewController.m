@@ -6,14 +6,14 @@
 //  Copyright © 2017年 maodenden. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "LowViewController.h"
 #import <AVFoundation/AVFoundation.h>
 #import <GPUImage/GPUImage.h>
 #import <GLKit/GLKit.h>
 #import "Define.h"
 
 
-@interface ViewController ()<AVCaptureVideoDataOutputSampleBufferDelegate>
+@interface LowViewController ()<AVCaptureVideoDataOutputSampleBufferDelegate>
 @property (nonatomic, strong) UIView *videoView;
 @property (nonatomic, strong) UIButton *startButton;
 @property (nonatomic, strong) UIButton *turnButton;
@@ -34,7 +34,7 @@
 
 @end
 
-@implementation ViewController
+@implementation LowViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
